@@ -1,0 +1,88 @@
+{
+    "products": [
+        {
+            "name": "Diamond Locket",
+            "image": "https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-1.png",
+            "current_price": 60,
+            "previous_price": 80
+        },
+        {
+            "name":"Diamond Locket",
+            "image": "https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-2.png",
+            "current_price": 40,
+            "previous_price": 50
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-3.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-4.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-5.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-6.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-7.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-8.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-9.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-10.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-11.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-12.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-13.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        },
+        {
+            "name":"Diamond Ring",
+            "image":" https://new.axilthemes.com/demo/template/etrade/assets/images/product/jewellery/product-14.png" ,
+            "current_price": 24,
+            "previous_price": 30
+        }
+    ]   
+}
