@@ -3,6 +3,7 @@ import ProductCards from "../ProductCards";
 import { ContainerListProducts, ListProducts } from "./style";
 
 interface IProducts {
+  id: string;
   name: string;
   image: string;
   previous_price: number;
@@ -28,10 +29,10 @@ const ProductList = () => {
     <>
       <ContainerListProducts>
         <ListProducts>
-          {products.map((product, index) => {
+          {products.map((product) => {
             return (
               <ProductCards
-                key={index+product.name}
+                key={product.id}
                 productName={product.name}
                 productImage={product.image}
                 productPreviousPrice={product.previous_price}

@@ -37,7 +37,7 @@ export const ContainerInfoBanner = styled.div`
       background-color: #ff497c;
       padding: 15px;
       box-shadow: 1px 1px 8px #0000008b;
-      transition: all 0.3s;
+      transition: all var(--transitions);
       &:hover {
         transform: scale(1.05);
       }

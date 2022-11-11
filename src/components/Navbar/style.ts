@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
-type TypeProps = {
-  isActive: boolean;
-};
-
-export const NavBody = styled.div<TypeProps>`
+export const NavBody = styled.div<{ isActive: boolean }>`
   width: 100vw;
   height: 60px;
   position: fixed;
   padding: 0 30px;
   z-index: 99;
-
+ 
   nav {
     margin: 0 auto;
     display: flex;
@@ -24,7 +20,7 @@ export const NavBody = styled.div<TypeProps>`
     backdrop-filter: blur(5.7px);
     -webkit-backdrop-filter: blur(5.7px);
     border: 1px solid rgba(255, 255, 255, 0.17);
-    transition: all 0.3s;
+    transition: all var(--transitions);
 
     ${({ isActive }) =>
       isActive
@@ -54,8 +50,8 @@ export const Menu = styled.div`
         visibility: hidden;
         -webkit-transform: scaleX(0);
         transform: scaleX(0);
-        -webkit-transition: all 0.2s ease-in-out 0s;
-        transition: all 0.2s ease-in-out 0s;
+        -webkit-transition: all var(--transitions) ease-in-out;
+        transition: all var(--transitions) ease-in-out;
       }
 
       &:hover::before {
@@ -90,7 +86,7 @@ export const ContainerButtonsMenu = styled.div`
           border-radius: 50%;
           position: absolute;
           z-index: -1;
-          transition: 0.2s;
+          transition: var(--transitions);
         }
         &:hover::after {
           transform: scale(1);
@@ -117,6 +113,89 @@ export const ContainerButtonsMenu = styled.div`
           top: -8px;
           right: -8px;
         }
+      }
+    }
+
+    li.my-account-item {
+      position: relative;
+    }
+  }
+`;
+export const MyAccountItem = styled.a<{ isDropDownActive: boolean }>`
+  ${({ isDropDownActive }) =>
+    isDropDownActive
+      ? `background-color: #ff497c; border-radius: 100%;`
+      : `background-color: none; border-radius: 100%;`};
+`;
+
+export const UserDropDown = styled.div<{ isDropDownActive: boolean }>`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  min-width: 250px;
+  padding: 20px;
+  border-radius: 4px;
+  list-style: none;
+  margin-top: 20px;
+
+  ${({ isDropDownActive }) =>
+    isDropDownActive
+      ? ` opacity: 1; visibility: visible; z-index: 9; transform: translateY(0);`
+      : `opacity: 0; visibility: hidden; z-index: -1; transform: translateY(30px);`};
+
+  &:active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 9;
+    transform: translateY(0);
+  }
+
+  ul.dropdown-list {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    cursor: pointer;
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid #f6f7fb;
+
+      &:hover {
+        color: #3577f0;
+      }
+    }
+  }
+
+  button.dropdown-button-login {
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #3577f0;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    transition: all var(--transitions);
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+  }
+
+  p {
+    padding-top: 5px;
+    text-align: center;
+    font-size: 11px;
+    span {
+      font-weight: bold;
+      transition: all var(--transitions);
+      padding: 5px;
+      border-bottom: 1px solid #999fae;
+      cursor: pointer;
+      &:hover {
+        color: #3577f0;
+        border-bottom: 1px solid #3577f0;
       }
     }
   }
