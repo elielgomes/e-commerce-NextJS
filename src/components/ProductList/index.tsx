@@ -31,7 +31,7 @@ const ProductList = () => {
           {products.map((product, index) => {
             return (
               <ProductCards
-                key={index}
+                key={index+product.name}
                 productName={product.name}
                 productImage={product.image}
                 productPreviousPrice={product.previous_price}

@@ -61,7 +61,7 @@ const Carousel: React.FC = () => {
                 return (
                   <>
                     <Slide
-                      key={image}
+                      key={index+image}
                       backgroundCarousel={image}
                       className="carousel__cell"
                     />
