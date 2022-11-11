@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { NavBody, Menu, ContainerButtonsMenu } from "./style";
 import { BsCart2, BsSearch } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
+import { ModalCartContext, IModalCart } from "../../context/modalContext";
+import ModalCart from "../ModalCart";
 
 const Navbar: React.FC = () => {
   const [activeNavbar, setActiveNavbar] = useState<boolean>(false);
+
+  const { setModalCartOpen, modalCartOpen } = useContext(
+    ModalCartContext
+  ) as IModalCart;
+
 
   useEffect(() => {
     if (typeof window != "undefined") {
@@ -19,8 +26,10 @@ const Navbar: React.FC = () => {
     }
   }, []);
 
+
   return (
     <>
+      <ModalCart modalOpen={modalCartOpen} />
       <NavBody isActive={activeNavbar}>
         <nav>
           <Menu>
@@ -49,7 +58,7 @@ const Navbar: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="#" onClick={() => setModalCartOpen(true)}>
                   <BsCart2 />
                   <span id="cart-count">0</span>
                 </a>
