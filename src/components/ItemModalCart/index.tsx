@@ -15,7 +15,17 @@ import {
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { MdClose } from "react-icons/md";
 
-const ItemModalCart: React.FC = () => {
+interface IProps {
+  image: string;
+  name: string;
+  price: number;
+  quantityValue: number;
+  removeCartItem: () => void;
+  decreaseQuantity: () => void;
+  increaseQuantity: () => void;
+}
+
+const ItemModalCart: React.FC<IProps> = (props) => {
   return (
     <>
       <ModalCartItem>
@@ -23,35 +33,35 @@ const ItemModalCart: React.FC = () => {
           <ContainerImageCartItem>
             <img
               className="image-item-cart-modal"
-              src="/assets/product-4.png"
-              alt="img"
+              src={props.image}
+              alt="Product-Image"
             />
 
-            <ButtonRemoveItemCart>
+            <ButtonRemoveItemCart onClick={props.removeCartItem}>
               <MdClose />
             </ButtonRemoveItemCart>
           </ContainerImageCartItem>
 
           <ContainerItemContent>
             <ContainerItemTitle>
-              <h3>Diamond Necklace</h3>
+              <h3>{props.name}</h3>
             </ContainerItemTitle>
 
             <ContainerItemPrice>
-              <span>$ 00,00</span>
+              <span>${props.price}</span>
             </ContainerItemPrice>
           </ContainerItemContent>
 
           <ContainerItemQuantity>
-            <ButtonDecreaseQuantity>
+            <ButtonDecreaseQuantity onClick={props.decreaseQuantity}>
               <span>
                 <AiOutlineMinus />
               </span>
             </ButtonDecreaseQuantity>
 
-            <CurrentValue>3</CurrentValue>
+            <CurrentValue>{props.quantityValue}</CurrentValue>
 
-            <ButtonIncreaseQuantity>
+            <ButtonIncreaseQuantity onClick={props.increaseQuantity}>
               <span>
                 <AiOutlinePlus />
               </span>

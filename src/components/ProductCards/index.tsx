@@ -14,9 +14,9 @@ const ProductCards: React.FC<TypePropsProductCard> = (props) => {
           <ContainerImageCard>
             <img src={props.productImage} alt={props.productName} />
             <div className="drop-infos">
-                <button className="add-cart">
-                    Add Cart
-                </button>
+              <button className="add-cart" onClick={props.addCartItem}>
+                Add Cart
+              </button>
             </div>
           </ContainerImageCard>
           <ContainerCardInfo>

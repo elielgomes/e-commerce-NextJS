@@ -9,14 +9,15 @@ import {
 import { BsCart2, BsSearch } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import { ModalCartContext, IModalCart } from "../../context/modalContext";
-import { CartContext, ICart } from "../../context/cartContext";
 import ModalCart from "../ModalCart";
+import { CartContext, ICart } from "../../context/cartContext";
 
 const Navbar: React.FC = () => {
   const [activeNavbar, setActiveNavbar] = useState<boolean>(false);
   const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
+  const [cartTotalAmount, setCartTotalAmount] = useState<number>(0);
 
-  const { cartItems, setCartItems } = useContext(CartContext) as ICart;
+  const { cartItems } = useContext(CartContext) as ICart;
 
   const { setModalCartOpen, modalCartOpen } = useContext(
     ModalCartContext
@@ -34,6 +35,15 @@ const Navbar: React.FC = () => {
       window.addEventListener("scroll", handleScroll);
     }
   }, []);
+
+  useEffect(() => {
+    let count: number = 0;
+
+    cartItems.map((item) => {
+      count += item.quantity;
+    });
+    setCartTotalAmount(count);
+  }, [cartItems]);
 
   return (
     <>
@@ -58,14 +68,14 @@ const Navbar: React.FC = () => {
           <ContainerButtonsMenu>
             <ul>
               <li>
-                <a href="#" onClick={()=> {setCartItems(cartItems + 1)}}>
+                <a href="#" onClick={() => {}}>
                   <BsSearch />
                 </a>
               </li>
               <li>
                 <a href="#" onClick={() => setModalCartOpen(true)}>
                   <BsCart2 />
-                  <span id="cart-count">{cartItems}</span>
+                  <span id="cart-count">{cartTotalAmount}</span>
                 </a>
               </li>
               <li className="my-account-item">

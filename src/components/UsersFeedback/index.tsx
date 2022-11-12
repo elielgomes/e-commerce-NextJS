@@ -90,16 +90,13 @@ const UsersFeedback = () => {
             {userTestimonials.map((user, index) => {
               return (
                 <>
-                  <SwiperSlide key={index}>
+                  <SwiperSlide key={index + user.name}>
                     <ContainerCardFeedback>
                       <div className="card">
                         <p>{user.depositions}</p>
                       </div>
                       <div className="userInfos">
-                        <img
-                          src={user.image}
-                          alt="test"
-                        />
+                        <img src={user.image} alt="test" />
                         <h3>{user.name}</h3>
                       </div>
                     </ContainerCardFeedback>

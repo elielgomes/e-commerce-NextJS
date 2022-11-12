@@ -8,9 +8,10 @@ import {
   ContainerSubtotalPriceCart,
   ContainerGroupButtonsModalCart,
 } from "./style";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { ModalCartContext, IModalCart } from "../../context/modalContext";
+import { CartContext, ICart } from "../../context/cartContext";
 
 import ItemModalCart from "../ItemModalCart";
 
@@ -19,7 +20,44 @@ interface IModal {
 }
 
 const ModalCart: React.FC<IModal> = (props) => {
+  const { cartItems, setCartItems } = useContext(CartContext) as ICart;
   const { setModalCartOpen } = useContext(ModalCartContext) as IModalCart;
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  const removeItem = (id: string) => {
+    const filterCartItem = cartItems.filter((item) => {
+      return item.id != id;
+    });
+    setCartItems(filterCartItem);
+  };
+
+  const increaseQuantityItem = (id: string) => {
+    let indexItem = cartItems.findIndex((item) => item.id == id);
+    let items = [...cartItems];
+    items[indexItem].quantity += 1;
+    setCartItems(items);
+  };
+
+  const decreaseQuantityItem = (id: string) => {
+    let indexItem = cartItems.findIndex((item) => item.id == id);
+    let items = [...cartItems];
+
+    if (items[indexItem].quantity != 1) {
+      items[indexItem].quantity -= 1;
+      setCartItems(items);
+    } else {
+      removeItem(id);
+    }
+  };
+
+  useEffect(() => {
+    let totalPrice: number = 0;
+
+    cartItems.map((item) => {
+      totalPrice += item.quantity * item.price;
+    });
+    setTotalPrice(totalPrice);
+  }, [cartItems]);
 
   return (
     <>
@@ -31,19 +69,26 @@ const ModalCart: React.FC<IModal> = (props) => {
               <MdClose />
             </ModalButtonClose>
           </ContainerModalButtonClose>
-
           <ModalCartList>
-            <ItemModalCart />
-            <ItemModalCart />
-            <ItemModalCart />
-            <ItemModalCart />
-            <ItemModalCart />
-            <ItemModalCart />
+            {cartItems.map(({ image, name, price, quantity, id }) => {
+              return (
+                <ItemModalCart
+                  decreaseQuantity={() => decreaseQuantityItem(id)}
+                  increaseQuantity={() => increaseQuantityItem(id)}
+                  removeCartItem={() => removeItem(id)}
+                  key={id}
+                  image={image}
+                  name={name}
+                  price={price}
+                  quantityValue={quantity}
+                />
+              );
+            })}
           </ModalCartList>
           <ContainerFooterModalCart>
             <ContainerSubtotalPriceCart>
               <span>Subtotal:</span>
-              <span>$123.00</span>
+              <span>${totalPrice}</span>
             </ContainerSubtotalPriceCart>
             <ContainerGroupButtonsModalCart>
               <button className="view-cart">View Cart</button>

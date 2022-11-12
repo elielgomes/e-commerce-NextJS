@@ -6,7 +6,7 @@ export const NavBody = styled.div<{ isActive: boolean }>`
   position: fixed;
   padding: 0 30px;
   z-index: 99;
- 
+
   nav {
     margin: 0 auto;
     display: flex;
