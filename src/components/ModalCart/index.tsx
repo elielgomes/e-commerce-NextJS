@@ -12,8 +12,8 @@ import { useContext, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { ModalCartContext, IModalCart } from "../../context/modalContext";
 import { CartContext, ICart } from "../../context/cartContext";
-
 import ItemModalCart from "../ItemModalCart";
+import Link from "next/link";
 
 interface IModal {
   modalOpen: boolean;
@@ -91,8 +91,13 @@ const ModalCart: React.FC<IModal> = (props) => {
               <span>${totalPrice}</span>
             </ContainerSubtotalPriceCart>
             <ContainerGroupButtonsModalCart>
-              <button className="view-cart">View Cart</button>
-              <button className="checkout">Checkout</button>
+              <Link href="/cart">
+                <button className="view-cart">View Cart</button>
+              </Link>
+
+              <Link href="/checkout">
+                <button className="checkout">Checkout</button>
+              </Link>
             </ContainerGroupButtonsModalCart>
           </ContainerFooterModalCart>
         </ModalContent>

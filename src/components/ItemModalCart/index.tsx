@@ -5,10 +5,10 @@ import {
   ContainerItemContent,
   ContainerItemPrice,
   ContainerItemTitle,
+  ModalCartItem,
   ContainerItemQuantity,
   ButtonDecreaseQuantity,
   ButtonIncreaseQuantity,
-  ModalCartItem,
   CurrentValue,
 } from "./style";
 
@@ -51,7 +51,6 @@ const ItemModalCart: React.FC<IProps> = (props) => {
               <span>${props.price}</span>
             </ContainerItemPrice>
           </ContainerItemContent>
-
           <ContainerItemQuantity>
             <ButtonDecreaseQuantity onClick={props.decreaseQuantity}>
               <span>

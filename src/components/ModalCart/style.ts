@@ -97,24 +97,27 @@ export const ContainerGroupButtonsModalCart = styled.div`
   align-items: center;
   gap: 30px;
 
-  button {
-    border: none;
-    border-radius: 10px;
+  a {
     width: 100%;
-    height: 50px;
-    transition: var(--transitions);
-    color: #fff;
-    font-size: 18px;
+    button {
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      height: 50px;
+      transition: var(--transitions);
+      color: #fff;
+      font-size: 18px;
 
-    &:hover {
-      transform: scale(1.05);
-    }
+      &:hover {
+        transform: scale(1.05);
+      }
 
-    &.view-cart {
-      background-color: #3577f0;
-    }
-    &.checkout {
-      background-color: #ff497c;
+      &.view-cart {
+        background-color: #3577f0;
+      }
+      &.checkout {
+        background-color: #ff497c;
+      }
     }
   }
 `;

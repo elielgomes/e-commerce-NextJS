@@ -5,7 +5,7 @@ export const ModalCartItem = styled.li`
   padding-bottom: 30px;
   margin-bottom: 30px;
 
-  &:last-child{
+  &:last-child {
     border-bottom: none;
   }
 `;
