@@ -11,12 +11,13 @@ import { AiOutlineUser } from "react-icons/ai";
 import { ModalCartContext, IModalCart } from "../../context/modalContext";
 import ModalCart from "../ModalCart";
 import { CartContext, ICart } from "../../context/cartContext";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
   const [activeNavbar, setActiveNavbar] = useState<boolean>(false);
   const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
   const [cartTotalAmount, setCartTotalAmount] = useState<number>(0);
-
+  const [totalPrice, setTotalPrice] = useState<number>(0);
   const { cartItems } = useContext(CartContext) as ICart;
 
   const { setModalCartOpen, modalCartOpen } = useContext(
@@ -37,31 +38,36 @@ const Navbar: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+    let totalPrice: number = 0;
     let count: number = 0;
 
     cartItems.map((item) => {
+      totalPrice += item.quantity * item.price;
       count += item.quantity;
     });
+
+    setTotalPrice(totalPrice);
     setCartTotalAmount(count);
   }, [cartItems]);
 
   return (
     <>
-      <ModalCart modalOpen={modalCartOpen} />
+      <ModalCart modalOpen={modalCartOpen} totalPrice={totalPrice} />
       <NavBody isActive={activeNavbar}>
         <nav>
           <Menu>
             <li>
-              <a href="#">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="#">Shop</a>
+              <Link href="#">Shop</Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link href="#">About</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link href="#">Contact</Link>
             </li>
           </Menu>
 

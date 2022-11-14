@@ -8,7 +8,7 @@ import {
   ContainerSubtotalPriceCart,
   ContainerGroupButtonsModalCart,
 } from "./style";
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { MdClose } from "react-icons/md";
 import { ModalCartContext, IModalCart } from "../../context/modalContext";
 import { CartContext, ICart } from "../../context/cartContext";
@@ -17,12 +17,12 @@ import Link from "next/link";
 
 interface IModal {
   modalOpen: boolean;
+  totalPrice: number;
 }
 
 const ModalCart: React.FC<IModal> = (props) => {
   const { cartItems, setCartItems } = useContext(CartContext) as ICart;
   const { setModalCartOpen } = useContext(ModalCartContext) as IModalCart;
-  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const removeItem = (id: string) => {
     const filterCartItem = cartItems.filter((item) => {
@@ -50,14 +50,6 @@ const ModalCart: React.FC<IModal> = (props) => {
     }
   };
 
-  useEffect(() => {
-    let totalPrice: number = 0;
-
-    cartItems.map((item) => {
-      totalPrice += item.quantity * item.price;
-    });
-    setTotalPrice(totalPrice);
-  }, [cartItems]);
 
   return (
     <>
@@ -88,7 +80,7 @@ const ModalCart: React.FC<IModal> = (props) => {
           <ContainerFooterModalCart>
             <ContainerSubtotalPriceCart>
               <span>Subtotal:</span>
-              <span>${totalPrice}</span>
+              <span>${props.totalPrice}</span>
             </ContainerSubtotalPriceCart>
             <ContainerGroupButtonsModalCart>
               <Link href="/cart">

@@ -1,15 +1,23 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import {
   ContainerCartSection,
+  ContainerTable,
   BodyListCartSection,
   TableCartProduct,
   TableHead,
+  BodyPurchaseSummary,
+  PurchaseSummary,
+  PurchaseSubtotal,
+  PurchaseTotal,
+  PurchaseShipping,
 } from "./style";
 import CartSectionItem from "../CartSectionItem";
 import { CartContext, ICart } from "../../context/cartContext";
 
 const CartSection = () => {
   const { cartItems, setCartItems } = useContext(CartContext) as ICart;
+  const [subtotal, setSubTotal] = useState<number>(0);
+  const [shippingPrice, setShippingPrice] = useState<string>("0");
 
   const removeItem = (id: string) => {
     const filterCartItem = cartItems.filter((item) => {
@@ -37,38 +45,110 @@ const CartSection = () => {
     }
   };
 
+  useEffect(() => {
+    let totalPrice: number = 0;
+
+    cartItems.map((item) => {
+      totalPrice += item.quantity * item.price;
+    });
+
+    setSubTotal(totalPrice);
+  }, [cartItems]);
+
   return (
     <>
       <ContainerCartSection>
-        <TableCartProduct>
-          <TableHead>
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Product</th>
-              <th scope="col"></th>
-              <th scope="col">Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Subtotal</th>
-            </tr>
-          </TableHead>
+        <ContainerTable>
+          <TableCartProduct>
+            <TableHead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Product</th>
+                <th scope="col"></th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </TableHead>
 
-          <BodyListCartSection>
-            {cartItems.map((item) => {
-              return (
-                <CartSectionItem
-                  removeItemCartSection={() => removeItem(item.id)}
-                  increaseItemCartSection={() => increaseQuantityItem(item.id)}
-                  decreaseItemCartSection={() => decreaseQuantityItem(item.id)}
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
-                  totalPricePerProduct={item.price * item.quantity}
-                />
-              );
-            })}
-          </BodyListCartSection>
-        </TableCartProduct>
+            <BodyListCartSection>
+              {cartItems.map((item) => {
+                return (
+                  <CartSectionItem
+                    removeItemCartSection={() => removeItem(item.id)}
+                    increaseItemCartSection={() =>
+                      increaseQuantityItem(item.id)
+                    }
+                    decreaseItemCartSection={() =>
+                      decreaseQuantityItem(item.id)
+                    }
+                    image={item.image}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.quantity}
+                    totalPricePerProduct={item.price * item.quantity}
+                  />
+                );
+              })}
+            </BodyListCartSection>
+          </TableCartProduct>
+        </ContainerTable>
+        <BodyPurchaseSummary>
+          <PurchaseSummary>
+            <li>
+              <PurchaseSubtotal>
+                <span>Subtotal</span>
+                <span>$ {subtotal}</span>
+              </PurchaseSubtotal>
+            </li>
+            <li>
+              <PurchaseShipping>
+                <span>Shipping</span>
+                <form className="container-shipping">
+                  <div>
+                    <span>$00 </span>
+                    <input
+                      type="radio"
+                      name="shipping"
+                      id="free"
+                      value={0}
+                      onChange={(e) => setShippingPrice(e.target.value)}
+                    />
+                    <label htmlFor="free">Free</label>
+                  </div>
+                  <div>
+                    <span>$10 </span>
+                    <input
+                      type="radio"
+                      name="shipping"
+                      id="sedex"
+                      value={10}
+                      onChange={(e) => setShippingPrice(e.target.value)}
+                    />
+                    <label htmlFor="sedex">Sedex</label>
+                  </div>
+                  <div>
+                    <span>$40 </span>
+                    <input
+                      type="radio"
+                      name="shipping"
+                      id="shipping-company"
+                      value={40}
+                      onChange={(e) => setShippingPrice(e.target.value)}
+                    />
+                    <label htmlFor="shipping-company">Shipping Company</label>
+                  </div>
+                </form>
+              </PurchaseShipping>
+            </li>
+            <li>
+              <PurchaseTotal>
+                <span>Total</span>
+                <span>$ {subtotal + Number(shippingPrice)}</span>
+              </PurchaseTotal>
+            </li>
+          </PurchaseSummary>
+        </BodyPurchaseSummary>
       </ContainerCartSection>
     </>
   );
