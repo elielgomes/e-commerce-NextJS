@@ -5,6 +5,9 @@ import {
   ContainerButtonsMenu,
   MyAccountItem,
   UserDropDown,
+  DropDownList,
+  ButtonsMenuItems,
+  ListButtonsMenu,
 } from "./style";
 import { BsCart2, BsSearch } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
@@ -64,46 +67,48 @@ const Navbar: React.FC = () => {
               <Link href="#">Shop</Link>
             </li>
             <li>
-              <Link href="#">About</Link>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <Link href="#">Contact</Link>
+              <Link href="/contact">Contact</Link>
             </li>
           </Menu>
 
           <ContainerButtonsMenu>
-            <ul>
-              <li>
-                <a href="#" onClick={() => {}}>
-                  <BsSearch />
-                </a>
-              </li>
-              <li>
-                <a href="#" onClick={() => setModalCartOpen(true)}>
-                  <BsCart2 />
-                  <span id="cart-count">{cartTotalAmount}</span>
-                </a>
-              </li>
-              <li className="my-account-item">
-                <MyAccountItem
-                  isDropDownActive={dropDownOpen}
-                  onClick={() => setDropDownOpen(!dropDownOpen)}
-                >
-                  <AiOutlineUser />
-                </MyAccountItem>
-                <UserDropDown isDropDownActive={dropDownOpen}>
-                  <ul className="dropdown-list">
-                    <li>My Account</li>
-                    <li>Support</li>
-                  </ul>
+            <ListButtonsMenu>
+              <ButtonsMenuItems onClick={() => {}}>
+                <BsSearch />
+              </ButtonsMenuItems>
+              <ButtonsMenuItems onClick={() => setModalCartOpen(true)}>
+                <BsCart2 />
+                <span id="cart-count">{cartTotalAmount}</span>
+              </ButtonsMenuItems>
 
-                  <button className="dropdown-button-login">Login</button>
-                  <p>
-                    No account yet? <span>REGISTER HERE</span>
-                  </p>
-                </UserDropDown>
-              </li>
-            </ul>
+              <MyAccountItem
+                isDropDownActive={dropDownOpen}
+                onClick={() => setDropDownOpen(!dropDownOpen)}
+              >
+                <AiOutlineUser />
+              </MyAccountItem>
+
+              <UserDropDown isDropDownActive={dropDownOpen}>
+                <DropDownList>
+                  <li>
+                    <Link href="/">My Account</Link>
+                  </li>
+                  <li>
+                    <Link href="/">Support</Link>
+                  </li>
+                </DropDownList>
+
+                <Link href="/login" className="dropdown-button-login">
+                  <button>Login</button>
+                </Link>
+                <p>
+                  No account yet? <Link href='/register'>REGISTER HERE</Link>
+                </p>
+              </UserDropDown>
+            </ListButtonsMenu>
           </ContainerButtonsMenu>
         </nav>
       </NavBody>

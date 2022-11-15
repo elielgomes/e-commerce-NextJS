@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerSwiper = styled.div`
-  margin-top: 100px;
+  margin: 100px 0;
   background-color: #f9f3f0;
 `;
 

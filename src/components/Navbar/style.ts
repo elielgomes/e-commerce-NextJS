@@ -63,65 +63,61 @@ export const Menu = styled.div`
   }
 `;
 
-export const ContainerButtonsMenu = styled.div`
-  ul {
-    display: flex;
-    gap: 30px;
+export const ContainerButtonsMenu = styled.div``;
 
-    li {
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 30px;
-        width: 30px;
-        position: relative;
+export const ListButtonsMenu = styled.ul`
+  display: flex;
+  gap: 30px;
+`;
 
-        &::after {
-          content: "";
-          height: 30px;
-          width: 30px;
-          background-color: #ff497c;
-          transform: scale(0);
-          border-radius: 50%;
-          position: absolute;
-          z-index: -1;
-          transition: var(--transitions);
-        }
-        &:hover::after {
-          transform: scale(1);
-        }
+export const ButtonsMenuItems = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  position: relative;
 
-        svg {
-          width: 20px;
-          height: 20px;
-          position: absolute;
-        }
+  &::after {
+    content: "";
+    height: 30px;
+    width: 30px;
+    background-color: #ff497c;
+    transform: scale(0);
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    transition: var(--transitions);
+  }
+  &:hover::after {
+    transform: scale(1);
+  }
 
-        span#cart-count {
-          text-align: center;
-          background-color: #3577f0;
-          border: 2px solid #fff;
-          font-size: 12px;
-          font-weight: 500;
-          color: #fff;
-          border-radius: 50%;
-          height: 22px;
-          width: 22px;
-          line-height: 19px;
-          position: absolute;
-          top: -8px;
-          right: -8px;
-        }
-      }
-    }
+  svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+  }
 
-    li.my-account-item {
-      position: relative;
-    }
+  span#cart-count {
+    text-align: center;
+    background-color: #3577f0;
+    border: 2px solid #fff;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 50%;
+    height: 22px;
+    width: 22px;
+    line-height: 19px;
+    position: absolute;
+    top: -8px;
+    right: -8px;
   }
 `;
-export const MyAccountItem = styled.a<{ isDropDownActive: boolean }>`
+export const MyAccountItem = styled(ButtonsMenuItems)<{
+  isDropDownActive: boolean;
+}>`
   ${({ isDropDownActive }) =>
     isDropDownActive
       ? `background-color: #ff497c; border-radius: 100%;`
@@ -131,7 +127,7 @@ export const MyAccountItem = styled.a<{ isDropDownActive: boolean }>`
 export const UserDropDown = styled.div<{ isDropDownActive: boolean }>`
   position: absolute;
   top: 100%;
-  right: 0;
+  right: 0px;
   background: #fff;
   min-width: 250px;
   padding: 20px;
@@ -151,35 +147,20 @@ export const UserDropDown = styled.div<{ isDropDownActive: boolean }>`
     transform: translateY(0);
   }
 
-  ul.dropdown-list {
-    display: flex;
-    gap: 0px;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 10px;
-    cursor: pointer;
-    li {
-      padding: 10px 0;
-      border-bottom: 1px solid #f6f7fb;
-
+  a.dropdown-button-login {
+    button {
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      background-color: #3577f0;
+      height: 40px;
+      font-size: 20px;
+      color: #fff;
+      transition: all var(--transitions);
       &:hover {
-        color: #3577f0;
+        transform: scale(1.05);
+        filter: brightness(0.9);
       }
-    }
-  }
-
-  button.dropdown-button-login {
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    background-color: #3577f0;
-    height: 40px;
-    font-size: 20px;
-    color: #fff;
-    transition: all var(--transitions);
-    &:hover {
-      transform: scale(1.05);
-      filter: brightness(0.9);
     }
   }
 
@@ -187,16 +168,32 @@ export const UserDropDown = styled.div<{ isDropDownActive: boolean }>`
     padding-top: 5px;
     text-align: center;
     font-size: 11px;
-    span {
+    a{
       font-weight: bold;
       transition: all var(--transitions);
       padding: 5px;
       border-bottom: 1px solid #999fae;
-      cursor: pointer;
       &:hover {
         color: #3577f0;
         border-bottom: 1px solid #3577f0;
       }
+    }
+  }
+`;
+
+export const DropDownList = styled.ul`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  gap: 20px;
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f6f7fb;
+  }
+  a {
+    &:hover {
+      color: #3577f0;
     }
   }
 `;

@@ -36,7 +36,7 @@ export const TableCartProduct = styled.table`
 `;
 
 export const TableHead = styled.thead`
-  background-color: #ccd7e3;
+  background-color: #F0F2FF;
 
   tr > th {
     padding: 20px 15px;
@@ -53,7 +53,7 @@ export const BodyListCartSection = styled.tbody`
 export const BodyPurchaseSummary = styled.div`
   width: 800px;
   height: 240px;
-  background-color: #ccd7e3;
+  background-color: #F0F2FF;
   padding: 30px 40px;
 `;
 
