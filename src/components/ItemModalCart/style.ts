@@ -26,6 +26,13 @@ export const ContainerImageCartItem = styled.div`
     border-radius: 10px;
     position: absolute;
   }
+
+  @media (max-width: 320px) {
+    & {
+      width: 70px;
+      height: 70px;
+    }
+  }
 `;
 
 export const ButtonRemoveItemCart = styled.button`
@@ -68,6 +75,31 @@ export const ContainerItemTitle = styled.div`
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+  }
+  @media (max-width: 425px) {
+    & {
+      h3 {
+        font-size: 16px;
+        width: 150px;
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    & {
+      h3 {
+        font-size: 14px;
+        width: 110px;
+      }
+    }
+  }
+  @media (max-width: 320px) {
+    & {
+      h3 {
+        font-size: 12px;
+        width: 100px;
+      }
+    }
   }
 `;
 

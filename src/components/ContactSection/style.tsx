@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerContactSection = styled.div`
   margin: 0 auto;
-  padding: 100px 60px;
+  padding: 100px 60px 0;
   max-width: 1500px;
   min-height: 100vh;
   display: flex;
@@ -29,11 +29,17 @@ export const BodyAddress = styled.div`
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 30px;
+
   @media (max-width: 1240px) {
     width: 750px;
     flex-direction: row;
     gap: 60px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 

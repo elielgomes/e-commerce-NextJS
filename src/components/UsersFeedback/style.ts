@@ -39,6 +39,10 @@ export const ContainerFeedback = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
+  @media (max-width: 375px) {
+    padding: 0 20px;
+  }
 `;
 
 export const ContainerCardFeedback = styled.div`
@@ -49,6 +53,7 @@ export const ContainerCardFeedback = styled.div`
     background-color: #fff;
     border-radius: 10px;
     position: relative;
+
     &::after {
       content: "";
       width: 0;
@@ -61,6 +66,7 @@ export const ContainerCardFeedback = styled.div`
     }
     p {
       color: #505050b3;
+      text-align: justify;
     }
   }
 
@@ -72,6 +78,15 @@ export const ContainerCardFeedback = styled.div`
 
     img {
       width: 60px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .card {
+      width: 230px;
+      p {
+        font-size: 14px;
+      }
     }
   }
 `;

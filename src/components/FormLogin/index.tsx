@@ -5,6 +5,7 @@ import {
   FormControl,
   ContainerButtonSubmit,
 } from "./style";
+import Link from "next/link";
 
 const FormLogin = () => {
   return (
@@ -33,6 +34,9 @@ const FormLogin = () => {
             <button>Login</button>
           </ContainerButtonSubmit>
         </Form>
+        <p className="redirect-register">
+          No account yet? <Link href="/register">REGISTER HERE</Link>
+        </p>
       </FormBody>
     </>
   );

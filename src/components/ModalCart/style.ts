@@ -5,7 +5,7 @@ type TypeProps = {
 };
 
 export const ModalBody = styled.div<TypeProps>`
-  ${({ isOpen }) => (isOpen ? `width: 600px;` : `width: 0px;`)}
+  ${({ isOpen }) => (isOpen ? `width:var(--modal-size);` : `width: 0px;`)}
 
   height: 100vh;
   background-color: #fff;
@@ -20,6 +20,12 @@ export const ModalContent = styled.div`
   width: 600px;
   padding: 40px;
   overflow: auto;
+  @media (max-width: 600px) {
+    & {
+      width: 100vw;
+      padding: 20px;
+    }
+  }
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -44,6 +50,12 @@ export const ContainerModalButtonClose = styled.div`
   h3 {
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
+  }
+
+  @media (max-width: 600px) {
+    & {
+      padding: 20px 0;
+    }
   }
 `;
 

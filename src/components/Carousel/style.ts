@@ -6,7 +6,11 @@ type TypeProps = {
 
 export const ContainerCarousel = styled.div`
   margin-bottom: 130px;
- 
+  margin: 80px auto;
+  max-width: 600px;
+  overflow: hidden;
+  height: 290px;
+
   [class^="number-slide"],
   [class*=" number-slide"] {
     display: flex;

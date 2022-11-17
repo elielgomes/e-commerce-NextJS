@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const FormBody = styled.div`
   background-color: #fff;
-  width: 750px;
-  height: 450px;
+  width: 768px;
+  height: auto;
   border-radius: 6px;
   display: flex;
   padding-top: 15px;
@@ -14,13 +14,19 @@ export const FormBody = styled.div`
     "Lucida Sans", Arial, sans-serif;
   h3 {
     font-size: 20px;
-    padding: 10px 0;
+    padding: 10px 20px;
+    text-align: center;
   }
- 
+  @media (max-width: 768px) {
+    & {
+      width: 100%;
+    }
+  }
 `;
 
 export const Form = styled.form`
   padding: 30px;
+  width: 100%;
 `;
 
 export const FormGroup = styled.div`
@@ -80,10 +86,10 @@ export const ContainerButtonSubmit = styled.div`
     color: #fff;
     font-weight: bold;
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
     &:active {
-      transform: scale(0.95);
+      transform: scale(0.98);
     }
   }
 `;
@@ -114,5 +120,10 @@ export const TextArea = styled.textarea`
 
 export const ContainerInputInfoUser = styled.div`
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 20px;
+  width: 100%;
+
 `;
