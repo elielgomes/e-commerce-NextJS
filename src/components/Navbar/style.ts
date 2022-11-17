@@ -27,6 +27,25 @@ export const NavBody = styled.div<{ isActive: boolean }>`
         ? `background-color:rgba(255, 255, 255, 0);`
         : `background-color: #fff;`};
   }
+  @media (max-width: 768px) {
+    & {
+      padding: 0;
+      nav {
+        padding: 10px;
+        gap: 10px;
+        max-width: 100%;
+        border-radius: 0;
+      }
+    }
+  }
+
+  @media (max-width: 320px) {
+    & {
+      nav {
+        gap: 0px;
+      }
+    }
+  }
 `;
 
 export const Menu = styled.div`
@@ -61,6 +80,19 @@ export const Menu = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    & {
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    & {
+      gap: 0px;
+      font-size: 14px;
+    }
+  }
 `;
 
 export const ContainerButtonsMenu = styled.div``;
@@ -68,6 +100,22 @@ export const ContainerButtonsMenu = styled.div``;
 export const ListButtonsMenu = styled.ul`
   display: flex;
   gap: 30px;
+  @media (max-width: 768px) {
+    & {
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    & {
+      gap: 15px;
+    }
+  }
+  @media (max-width: 320px) {
+    & {
+      gap: 10px;
+    }
+  }
 `;
 
 export const ButtonsMenuItems = styled.li`
@@ -127,7 +175,7 @@ export const MyAccountItem = styled(ButtonsMenuItems)<{
 export const UserDropDown = styled.div<{ isDropDownActive: boolean }>`
   position: absolute;
   top: 100%;
-  right: 0px;
+  right: 20px;
   background: #fff;
   min-width: 250px;
   padding: 20px;
@@ -168,7 +216,7 @@ export const UserDropDown = styled.div<{ isDropDownActive: boolean }>`
     padding-top: 5px;
     text-align: center;
     font-size: 11px;
-    a{
+    a {
       font-weight: bold;
       transition: all var(--transitions);
       padding: 5px;

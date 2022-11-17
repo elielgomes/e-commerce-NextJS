@@ -3,6 +3,7 @@
   --transitions: 0.2s;
   --primary-color: #ff497c;
   --secondary-color: #3577f0;
+  --modal-size: 600px;
 }
 
 * {
@@ -45,4 +46,10 @@ ul{
 
 button{
   cursor: pointer;
+}
+
+@media(max-width: 600px){
+  :root {
+    --modal-size : 100vw;
+  }
 }

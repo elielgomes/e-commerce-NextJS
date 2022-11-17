@@ -17,6 +17,7 @@ import { CartContext, ICart } from "../../context/cartContext";
 import Link from "next/link";
 
 const Navbar: React.FC = () => {
+  
   const [activeNavbar, setActiveNavbar] = useState<boolean>(false);
   const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
   const [cartTotalAmount, setCartTotalAmount] = useState<number>(0);
@@ -64,9 +65,6 @@ const Navbar: React.FC = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="#">Shop</Link>
-            </li>
-            <li>
               <Link href="/about">About</Link>
             </li>
             <li>
@@ -105,7 +103,7 @@ const Navbar: React.FC = () => {
                   <button>Login</button>
                 </Link>
                 <p>
-                  No account yet? <Link href='/register'>REGISTER HERE</Link>
+                  No account yet? <Link href="/register">REGISTER HERE</Link>
                 </p>
               </UserDropDown>
             </ListButtonsMenu>

@@ -16,7 +16,16 @@ export const FormBody = styled.div`
   }
   p {
     font-size: 14px;
+    &.redirect-register{
+      padding: 0 0 10px;
+      a{
+        &:hover{
+          color: var(--secondary-color);
+        }
+      }
+    }
   }
+
 `;
 
 export const Form = styled.form`

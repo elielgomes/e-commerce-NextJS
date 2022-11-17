@@ -6,6 +6,12 @@ export const ContainerMainBanner = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+
+  @media (max-width: 425px) {
+    & {
+      background-position: 60%;
+    }
+  }
 `;
 
 export const ContainerInfoBanner = styled.div`
@@ -40,6 +46,18 @@ export const ContainerInfoBanner = styled.div`
       transition: all var(--transitions);
       &:hover {
         transform: scale(1.05);
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
+    & {
+      padding: 0 30px;
+      div {
+        max-width: 300px;
+        h1 {
+          font-size: 50px;
+        }
       }
     }
   }

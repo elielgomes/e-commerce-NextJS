@@ -21,7 +21,7 @@ export const ContainerImageCard = styled.div`
   height: 255px;
   width: 255px;
   overflow: hidden;
-  background-color: blue;
+  background-color: #fff;
   position: relative;
 
   img {

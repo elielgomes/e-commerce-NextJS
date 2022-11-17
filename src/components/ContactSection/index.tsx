@@ -3,7 +3,7 @@ import {
   ContainerAddress,
   BodyAddress,
   OurStore,
-  OpeningHours
+  OpeningHours,
 } from "./style";
 import FormContact from "../FormContact";
 import MapLocation from "../MapLocation";
@@ -18,7 +18,9 @@ const ContactSection = () => {
           <BodyAddress>
             <OurStore>
               <h3>Our Store</h3>
-              <p>Street adasdadadadadad, <br/> Dev 1231, Devlandia of Space</p>
+              <p>
+                Street adasdadadadadad, <br /> Dev 1231, Devlandia of Space
+              </p>
               <p>Phone: +00 1234-5678</p>
               <p>Email: hello@hotmail.com</p>
             </OurStore>
@@ -29,9 +31,8 @@ const ContactSection = () => {
             </OpeningHours>
           </BodyAddress>
         </ContainerAddress>
-
-        <MapLocation />
       </ContainerContactSection>
+      <MapLocation />
     </>
   );
 };

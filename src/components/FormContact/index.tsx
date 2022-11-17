@@ -51,7 +51,7 @@ const FormContact = () => {
               cols={1}
               rows={2}
               name="email"
-              placeholder="example@example.com"
+              placeholder="Enter your message..."
             />
           </FormGroup>
           <ContainerButtonSubmit>

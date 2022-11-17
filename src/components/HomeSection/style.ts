@@ -8,9 +8,14 @@ export const ContainerSectionPosters = styled.div`
 export const SectionPosters = styled.section`
   display: flex;
   padding: 50px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
+  @media (max-width: 768px) {
+    & {
+      padding: 50px 20px;
+    }
+  }
 `;
 
 export const Poster = styled.div`
@@ -20,13 +25,14 @@ export const Poster = styled.div`
   overflow: hidden;
   width: 500px;
   height: 198px;
-  border-radius: 10px;
+  border-radius: 6px;
   position: relative;
 
   img {
     position: absolute;
     width: 100%;
     transition: all 0.5s;
+    border-radius: 6px;
   }
 
   div {
@@ -61,6 +67,32 @@ export const Poster = styled.div`
     }
     p {
       color: #fff;
+    }
+  }
+
+  @media (max-width: 768px) {
+    & {
+      width: 100%;
+      height: calc(35vw);
+    }
+  }
+
+  @media (max-width: 425px) {
+    & {
+      div {
+        h3 {
+          font-size: 20px;
+        }
+        p {
+          font-size: 14px;
+        }
+        &.poster-1-title {
+          margin-left: 100px;
+        }
+        &.poster-2-title {
+          margin-right: 30px;
+        }
+      }
     }
   }
 `;
