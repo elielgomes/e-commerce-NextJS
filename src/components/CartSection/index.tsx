@@ -72,21 +72,21 @@ const CartSection = () => {
             </TableHead>
 
             <BodyListCartSection>
-              {cartItems.map((item) => {
+              {cartItems.map(({id, image, name, price, quantity}) => {
                 return (
                   <CartSectionItem
-                    removeItemCartSection={() => removeItem(item.id)}
+                    removeItemCartSection={() => removeItem(id)}
                     increaseItemCartSection={() =>
-                      increaseQuantityItem(item.id)
+                      increaseQuantityItem(id)
                     }
                     decreaseItemCartSection={() =>
-                      decreaseQuantityItem(item.id)
+                      decreaseQuantityItem(id)
                     }
-                    image={item.image}
-                    name={item.name}
-                    price={item.price}
-                    quantity={item.quantity}
-                    totalPricePerProduct={item.price * item.quantity}
+                    image={`http://localhost:3001/products/image/${image}`}
+                    name={name}
+                    price={price}
+                    quantity={quantity}
+                    totalPricePerProduct={price * quantity}
                   />
                 );
               })}

@@ -69,7 +69,7 @@ const ModalCart: React.FC<IModal> = (props) => {
                   increaseQuantity={() => increaseQuantityItem(id)}
                   removeCartItem={() => removeItem(id)}
                   key={id}
-                  image={image}
+                  image={`http://localhost:3001/products/image/${image}`}
                   name={name}
                   price={price}
                   quantityValue={quantity}

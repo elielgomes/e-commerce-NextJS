@@ -43,12 +43,12 @@ const Carousel: React.FC = () => {
   );
 
   const listSlidesImage = [
-    "/assets/product-1.png",
-    "/assets/product-2.png",
-    "/assets/product-3.png",
-    "/assets/product-4.png",
-    "/assets/product-5.png",
-    "/assets/product-6.png",
+    "/assets/carouselImage/product-1.png",
+    "/assets/carouselImage/product-2.png",
+    "/assets/carouselImage/product-3.png",
+    "/assets/carouselImage/product-4.png",
+    "/assets/carouselImage/product-5.png",
+    "/assets/carouselImage/product-6.png",
   ];
 
   return (

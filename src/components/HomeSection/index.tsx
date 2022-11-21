@@ -6,7 +6,7 @@ const HomeSections = () => {
       <ContainerSectionPosters>
         <SectionPosters>
           <Poster>
-            <img src="/assets/poster-1.png" alt="Poster-1" />
+            <img src="/assets/banners/poster-1.png" alt="Poster-1" />
             <div className="poster-1-title">
               <h3>Premium Quality</h3>
               <p>Collections</p>
@@ -14,7 +14,7 @@ const HomeSections = () => {
           </Poster>
 
           <Poster>
-            <img src="/assets/poster-2.png" alt="Poster-2" />
+            <img src="/assets/banners/poster-2.png" alt="Poster-2" />
             <div className="poster-2-title">
                 <p>50% Offer In Winter</p>
               <h3>Get Exclusive Diamond</h3>

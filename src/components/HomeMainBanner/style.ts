@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContainerMainBanner = styled.div`
   height: 600px;
-  background-image: url("/assets/bg-banner-woman.jpg");
+  background-image: url("/assets/banners/bg-banner-woman.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

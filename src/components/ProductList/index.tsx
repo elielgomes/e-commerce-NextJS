@@ -2,30 +2,39 @@ import { useEffect, useState, useContext } from "react";
 import ProductCards from "../ProductCards";
 import { ContainerListProducts, ListProducts } from "./style";
 import { CartContext, ICart } from "../../context/cartContext";
+import axios from "axios";
 
 interface IProducts {
-  id: string;
+  _id: string;
   name: string;
-  image: string;
+  imagePath: string;
+  quantityStock: number;
   quantity: number;
-  previous_price: number;
-  current_price: number;
+  oldPrice: number;
+  currentPrice: number;
 }
 
 const ProductList: React.FC = () => {
   const { cartItems, setCartItems } = useContext(CartContext) as ICart;
   const [products, setProducts] = useState<IProducts[]>([]);
 
-  const getProducts = async () => {
-    let response = await fetch("/products/productList.json");
-    let data = await response.json();
-    return data;
-  };
+  async function getProducts() {
+    try {
+      await axios.get("http://localhost:3001/products").then((response) => {
+        return response;
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data.products);
-    });
+    axios
+      .get("http://localhost:3001/products")
+      .then((response) => {
+        console.log(response.data)
+        setProducts(response.data);
+      });
   }, []);
 
   const addCartItem = (
@@ -76,17 +85,17 @@ const ProductList: React.FC = () => {
       <ContainerListProducts>
         <ListProducts>
           {products.map(
-            ({ id, name, image, previous_price, current_price }) => {
+            ({ _id, name, imagePath, oldPrice, currentPrice }) => {
               return (
                 <ProductCards
                   addCartItem={() =>
-                    addCartItem(id, name, image, current_price)
+                    addCartItem(_id, name, imagePath, currentPrice)
                   }
-                  key={id}
+                  key={_id}
                   productName={name}
-                  productImage={image}
-                  productPreviousPrice={previous_price}
-                  productCurrentPrice={current_price}
+                  productImage={`http://localhost:3001/products/image/${imagePath}`}
+                  productPreviousPrice={oldPrice}
+                  productCurrentPrice={currentPrice}
                 />
               );
             }

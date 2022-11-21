@@ -18,7 +18,7 @@ export const ContainerLoginSection = styled.div`
 `;
 
 export const ContainerSideBanner = styled.div`
-  background-image: url("/assets/bg-login-user.jpg");
+  background-image: url("/assets/banners/bg-login-user.jpg");
   width: 690px;
   min-height: 100vh;
   background-position: center center;

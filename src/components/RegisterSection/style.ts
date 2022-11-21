@@ -18,7 +18,7 @@ export const ContainerRegisterSection = styled.div`
 `;
 
 export const ContainerSideBanner = styled.div`
-  background-image: url("/assets/bg-register-user.jpg");
+  background-image: url("/assets/banners/bg-register-user.jpg");
   width: 690px;
   min-height: 100vh;
   background-position: center center;
