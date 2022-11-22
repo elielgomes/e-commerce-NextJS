@@ -12,7 +12,7 @@ import {
 } from "./style";
 import axios from "axios";
 
-const AdminSection = () => {
+const AdminCreateProduct = () => {
   const [imagePreview, setImagePreview] = useState<string>("");
   const [productName, setProductName] = useState<string>("");
   const [productImage, setProductImage] = useState<string>("");
@@ -82,7 +82,9 @@ const AdminSection = () => {
                   setProductCategory(e.target.value)
                 }
               >
-                <option disabled={true}>Select category</option>
+                <option disabled selected>
+                  Select category
+                </option>
                 <option value="6377ad51ea25a000e598aae4">Brincos</option>
                 <option value="6377ad59ea25a000e598aae6">Aneis</option>
                 <option value="6377ad5fea25a000e598aae8">Pulseiras</option>
@@ -176,4 +178,4 @@ const AdminSection = () => {
   );
 };
 
-export default AdminSection;
+export default AdminCreateProduct;

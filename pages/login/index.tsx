@@ -1,4 +1,4 @@
-import LoginSection from "../src/components/LoginSection";
+import LoginSection from "../../src/components/LoginSection";
 
 const Login = () => {
   return (

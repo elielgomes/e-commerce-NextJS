@@ -1,4 +1,4 @@
-import CartSection from "../src/components/CartSection";
+import CartSection from "../../src/components/CartSection";
 
 const Cart = () => {
   return (

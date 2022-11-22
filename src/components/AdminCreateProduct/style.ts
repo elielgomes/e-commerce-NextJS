@@ -64,6 +64,9 @@ export const FormGroup = styled.div`
   select {
     width: 150px;
   }
+  textarea {
+    width: 440px;
+  }
 `;
 
 export const FormControl = styled.input`
@@ -88,15 +91,18 @@ export const FormControl = styled.input`
     border: 1px solid var(--secondary-color);
   }
 
+  &[name="name"] {
+    width: 250px;
+  }
+
   &[name="price"],
   &[name="old-price"],
   &[name="stock"] {
     width: 120px;
   }
 
-  &[name="description"],
   &[name="image"] {
-    width: 400px;
+    width: 300px;
   }
 `;
 
@@ -126,8 +132,8 @@ export const BodyImageInput = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 400px;
-  aspect-ratio: 16/9;
+  width: 440px;
+  height: 200px;
   color: #cbd3d9;
   border: 2px dashed;
   position: relative;
@@ -141,8 +147,8 @@ export const ImageInput = styled.input`
 `;
 
 export const ContainerInputImage = styled.div`
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    padding: 20px 0;
-`
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  padding: 20px 0;
+`;
